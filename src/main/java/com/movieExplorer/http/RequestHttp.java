@@ -6,7 +6,7 @@ import java.time.Duration;
 
 public class RequestHttp {
 
-	private String url;
+	private String url = "";
 	
 	public HttpRequest movieApiRequest() {
 		System.out.println(url);

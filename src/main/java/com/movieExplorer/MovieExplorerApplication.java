@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.movieExplorer.http.ResponseHttp;
+import com.movieExplorer.jsonParser.MovieData;
 
 @SpringBootApplication
 public class MovieExplorerApplication {
@@ -14,7 +15,11 @@ public class MovieExplorerApplication {
 		SpringApplication.run(MovieExplorerApplication.class, args);
 		
 		ResponseHttp test = new ResponseHttp();
-		System.out.println(test.movieApiResponse());
+		String json = test.movieApiResponse();
+		
+		MovieData test1 = new MovieData();
+		System.out.println(test1.extractMovieInfoFromJson(json));
+		
 	}
 
 }
