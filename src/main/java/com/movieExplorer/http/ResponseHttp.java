@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
 
+
 public class ResponseHttp {
 
 	private ClientHttp client = ClientHttp.INSTANCE;
