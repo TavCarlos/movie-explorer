@@ -14,7 +14,6 @@ import com.movieExplorer.http.ResponseHttp;
 public class MovieData {
 	
 	private ResponseHttp response = new ResponseHttp();
-
 	private ObjectMapper objectMapper = getDefaultObjectMapper();
 	private List<MovieDTO> movies = new ArrayList<>();
 	

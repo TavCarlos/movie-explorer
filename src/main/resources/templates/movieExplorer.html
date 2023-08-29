@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+<title>Movie Explorer</title>
+    <style>
+        body {
+            background: black;
+        }
+        
+        .movie {
+        	background-color: gray;
+            display: flex;
+            width: 300px;
+            align-items: center;
+            margin: auto;
+            padding-top: 25px;
+            padding-left: 25px;
+            padding-bottom: 25px;
+            padding-right: 150px;
+            border-radius: 10px;
+        }
+        .movie img {
+            width: 250px;
+            margin-right: 20px;
+        }
+        .movie .media-body {
+            display: flex;
+            flex-direction: column;
+            width:250px;
+        }
+        
+        .movie p{
+        	width: 200px;
+        }
+        
+        .movie p {
+            margin: 0;
+            color: white;
+            padding: 5px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+  
+  <form method="POST" action="/movies">
+  	<input type="text" name="searchvalue">
+  	<button type="submit" class="btn-submit">Search</button>
+  </form>
+  
+    <div th:each="movie : ${movies}" class="movie">
+        <img th:src="${movie.image_url}" alt="Poster">
+        <div  class="media-body">
+       		 <p>Nome: <span th:text="${movie.name}"></span></p>
+      		 <p>Ano: <span th:text="${movie.year}"></span></p>
+      		 <p>Tipo: <span th:text="${movie.type}"></span></p>
+        </div>
+    </div>
+</body>
+</html>

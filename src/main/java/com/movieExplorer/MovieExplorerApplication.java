@@ -10,9 +10,5 @@ public class MovieExplorerApplication {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 		SpringApplication.run(MovieExplorerApplication.class, args);
-		
-		
-//		MovieData test1 = new MovieData();
-//		System.out.println(test1.extractMovieInfoFromJson());
 	}
 }

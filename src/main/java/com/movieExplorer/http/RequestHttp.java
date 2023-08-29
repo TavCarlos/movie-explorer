@@ -6,14 +6,28 @@ import java.time.Duration;
 
 public class RequestHttp {
 
-	private String url = "";
-	
-	public HttpRequest movieApiRequest() {
-		System.out.println(url);
+	private String baseUrl = "https://api.watchmode.com/v1/autocomplete-search/";
+	private String apiKey = "";
+	private static String searchValue;
+		
+	public HttpRequest movieApiRequest(){
 		return HttpRequest.newBuilder()
 				.GET()
-				.uri(URI.create(url))
+				.uri(URI.create(this.getUrlWithSearchValue()))
 				.timeout(Duration.ofSeconds(30))
 				.build();
+	}
+	
+	public String getUrlWithSearchValue() {
+		String value = searchValue.replace(" ", "%20");
+		return baseUrl + "?apiKey=" + apiKey + "&search_value=" + value;
+	}
+	
+	public void setSearchValue(String value) {
+		searchValue = value;
+	}
+	
+	public String getSearchValue() {
+		return searchValue;
 	}
 }

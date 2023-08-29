@@ -1,0 +1,36 @@
+        body {
+            background: black;
+        }
+        
+        .movie {
+        	background-color: gray;
+            display: flex;
+            width: 300px;
+            align-items: center;
+            margin: auto;
+            padding-top: 25px;
+            padding-left: 25px;
+            padding-bottom: 25px;
+            padding-right: 150px;
+            border-radius: 10px;
+        }
+        .movie img {
+            width: 250px;
+            margin-right: 20px;
+        }
+        .movie .media-body {
+            display: flex;
+            flex-direction: column;
+            width:250px;
+        }
+        
+        .movie p{
+        	width: 200px;
+        }
+        
+        .movie p {
+            margin: 0;
+            color: white;
+            padding: 5px;
+            font-size: 20px;
+        }
