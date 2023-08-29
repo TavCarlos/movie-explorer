@@ -2,21 +2,21 @@ package com.movieExplorer.dtos;
 
 public class MovieSearchValueDTO {
 
-	private String searchvalue;
+	private String movieSearchParam;
 	
 	public MovieSearchValueDTO() {
 	}
 	
-	public MovieSearchValueDTO(String searchvalue) {
-		this.searchvalue = searchvalue;
+	public MovieSearchValueDTO(String movieSearchParam) {
+		this.movieSearchParam = movieSearchParam;
 	}
 	
 	
-	public String getSearchValue() {
-		return searchvalue;
+	public String getMovieSearchParam() {
+		return movieSearchParam;
 	}
 	
-	public void setSearchValue(String searchvalue) {
-		this.searchvalue = searchvalue;
+	public void setMovieSearchParam(String movieSearchParam) {
+		this.movieSearchParam = movieSearchParam;
 	}
 }

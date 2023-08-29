@@ -4,12 +4,17 @@ import java.net.URI;
 import java.net.http.HttpRequest;
 import java.time.Duration;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
 public class RequestHttp {
 
+	@Value("${api.key}")
+	private String apiKey;
 	private String baseUrl = "https://api.watchmode.com/v1/autocomplete-search/";
-	private String apiKey = "";
 	private static String searchValue;
-		
+	
 	public HttpRequest movieApiRequest(){
 		return HttpRequest.newBuilder()
 				.GET()
@@ -25,9 +30,5 @@ public class RequestHttp {
 	
 	public void setSearchValue(String value) {
 		searchValue = value;
-	}
-	
-	public String getSearchValue() {
-		return searchValue;
 	}
 }

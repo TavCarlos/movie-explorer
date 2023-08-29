@@ -4,8 +4,10 @@ import java.net.http.HttpClient;
 import java.net.http.HttpClient.Redirect;
 import java.time.Duration;
 
-public enum ClientHttp {
-	INSTANCE;
+import org.springframework.stereotype.Component;
+
+@Component
+public class ClientHttp {
 	
 	public HttpClient movieApiClient() {
 		return HttpClient.newBuilder()

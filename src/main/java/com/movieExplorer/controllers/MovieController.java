@@ -1,8 +1,8 @@
 package com.movieExplorer.controllers;
 
-import java.io.IOException;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,20 +19,23 @@ import com.movieExplorer.jsonParser.MovieData;
 @RequestMapping(path = "/movies")
 public class MovieController {
 
+	@Autowired
+	private RequestHttp request;
+	
+	@Autowired
+	private MovieData movieData;
+	
 	@GetMapping
-	public ModelAndView getMovies() throws IOException, InterruptedException {
+	public ModelAndView getMovies() {
 		ModelAndView mv = new ModelAndView("movieExplorer.html");
 		return mv;
 	}
 	
 	@PostMapping
-	public ModelAndView searchMovie(@RequestParam("searchvalue") MovieSearchValueDTO searchvalue) throws IOException, InterruptedException {
+	public ModelAndView searchMovie(@RequestParam("movieSearchParam") MovieSearchValueDTO movieSearchParam)  {
 		ModelAndView mv = new ModelAndView("movieExplorer.html");
 	    
-	    RequestHttp request = new RequestHttp();
-	    request.setSearchValue(searchvalue.getSearchValue());
-	    
-	    MovieData movieData = new MovieData();
+	    request.setSearchValue(movieSearchParam.getMovieSearchParam());
 	    List<MovieDTO> movies = movieData.extractMovieInfoFromJson();
 
 	    mv.addObject("movies", movies);
